@@ -102,15 +102,40 @@
 
 </section>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 <script type="text/javascript">
 
     var main = $('#main');
-    function makeResults() {
 
-        $( "<section class='container results'><h1>A True Story:</h1>" ).appendTo(main);
-        $("<section class='container results'><p>Once upon a time there was a Developer named NAME.\"\n" +
+    function makeResults() {
+       var container=  $( "<section class='container results'><h1>A True Story:</h1>" ).appendTo(main);
+
+		var name  = $('#validationDefault01').val();
+        $('<p>').text("Once upon a time there was a Developer named "+name).appendTo(container);
+
+        var verb  = $('#inlineFormCustomSelect').val();
+        $('<p>').text(name +" came to General Asssembly to " + verb + " the great mountain of programming knowledge.").appendTo(container);
+
+        var mission  = $('#exampleFormControlTextarea1').val();
+        $('<p>').text( mission + " "+ name + " shouted!").appendTo(container);
+
+        var radio  = $('input [type=radio][radioStacked3=Sentimental]:checked').val();
+        $('<p>').text('').appendTo(container);
+
+
+        var noun  = $('input[type=checkbox][exampleFormControlTextarea2=Sentiment]:checked').val();
+        $('<p>').text("Though "+radio + " " + name +" was able to overcome all obstacles with the power of their "+ noun).appendTo(container);
+
+        var noun2  = $('.custom-control').val();
+        $('<p>').text("In the end, their success can be contributed entirely to their "+ noun2).appendTo(container);
+
+
+
+        /*For each value entered into a form input, add the input to the corresponding sentence, then append the text into the results section:\n" +
+            "\n" +
+            "            \"Once upon a time there was a Developer named NAME.\"\n" +
             "\n" +
             "            \"NAME came to General Asssembly to VERB1 the great mountain of programming knowledge.\"\n" +
             "\n" +
@@ -118,8 +143,8 @@
             "\n" +
             "            \"Though SENTIMENT, NAME was able to overcome all obstacles with the power of their NOUN.\"\n" +
             "\n" +
-            "            \"In the end, their success can be contributed entirely to their \" + ADJECTIVE2[list each one checked, comma-separated] + NOUN2.\"</p>").appendTo(main);
-
+            "            \"In the end, their success can be contributed entirely to their \" + ADJECTIVE2[list each one checked, comma-separated] + NOUN2.\"\n</p>").appendTo(main);
+*/
         //JS Native:
             var results = document.createElement('section');
         results.innerHTML = '<h1>' + 'A true story:' + '</h1>';
@@ -135,7 +160,7 @@
         event.preventDefault();
 
         // Run the 'makeResults' function seen above
-        alert(makeResults());
+        makeResults();
 
         /*
 
