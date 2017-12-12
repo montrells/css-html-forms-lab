@@ -9,9 +9,11 @@
 </head>
 <body>
 <section id="main">
-	<div class="container p-3 mb-2 bg-success text-white">
+
 		<section class="formSection container text-center">
-			<form class="form" method="GET">
+			<form class="form container" method="GET">
+			<div class="container p-3 mb-2 bg-success text-white">
+
 				<h1 class="font-weight-bold">My Dev Story</h1>
 				<div class="row formGroup">
 					<label for="validationDefault01">Name:</label>
@@ -90,12 +92,14 @@
 					<label for="exampleFormControlTextarea2">Noun:</label>
 					<textarea class="form-control" id="exampleFormControlTextarea3" rows="2"></textarea>
 				</div>
-				<button class="btn btn-primary" type="submit">Submit</button>
+				<button class="row formGroup btn btn-primary" type="submit">Submit</button>
 
 
+
+			</div>
 			</form>
 		</section>
-	</div>
+
 </section>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -106,21 +110,33 @@
     function makeResults() {
 
         $( "<section class='container results'><h1>A True Story:</h1>" ).appendTo(main);
+        $("<section class='container results'><p>Once upon a time there was a Developer named NAME.\"\n" +
+            "\n" +
+            "            \"NAME came to General Asssembly to VERB1 the great mountain of programming knowledge.\"\n" +
+            "\n" +
+            "            \"\"MISSION\", NAME shouted.\"\n" +
+            "\n" +
+            "            \"Though SENTIMENT, NAME was able to overcome all obstacles with the power of their NOUN.\"\n" +
+            "\n" +
+            "            \"In the end, their success can be contributed entirely to their \" + ADJECTIVE2[list each one checked, comma-separated] + NOUN2.\"</p>").appendTo(main);
 
-        JS Native:
+        //JS Native:
             var results = document.createElement('section');
         results.innerHTML = '<h1>' + 'A true story:' + '</h1>';
         results.className = 'container results';
         main.appendChild(results);
-    };
+
+
+    }
 
     $("form").on("submit", function(event){
 
         // Stop the form from submitting
+        event.preventDefault();
 
         // Run the 'makeResults' function seen above
-        makeResults()
-        console.log(event);
+        alert(makeResults());
+
         /*
 
             For each value entered into a form input, add the input to the corresponding sentence, then append the text into the results section:
@@ -137,7 +153,7 @@
 
         */
     });
-    makeResults()
+
 </script>
 
 </body>
