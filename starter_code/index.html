@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>CSS HTML Forms Lab</title>
-	<link rel="stylesheet" href="css/style.css">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Proza+Libre" rel="stylesheet">
+	<link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
@@ -48,17 +48,17 @@
 				<label class="row form-group">Sentimental:</label>
 				<div class="custom-controls-stacked  row form-group">
 					<label class="custom-control custom-radio">
-						<input id="radioStacked3" name="radio-stacked" type="radio" class="custom-control-input">
+						<input id="radioStacked3" name="radioButton" type="radio" class="custom-control-input" value="dubious">
 						<span class="custom-control-indicator"></span>
 						<span class="custom-control-description">dubious</span>
 					</label>
 					<label class="custom-control custom-radio">
-						<input id="radioStacked4" name="radio-stacked" type="radio" class="custom-control-input">
+						<input id="radioStacked4" name="radioButton" type="radio" class="custom-control-input" value="mildly concerned">
 						<span class="custom-control-indicator"></span>
 						<span class="custom-control-description">mildly concerned</span>
 					</label>
 					<label class="custom-control custom-radio">
-						<input id="radioStacked5" name="radio-stacked" type="radio" class="custom-control-input">
+						<input id="radioStacked5" name="radioButton" type="radio" class="custom-control-input" value="already perfect">
 						<span class="custom-control-indicator"></span>
 						<span class="custom-control-description">already perfect</span>
 					</label>
@@ -70,18 +70,18 @@
 				<label class="row form-group">Sentiment:</label>
 				<div class="row formGroup">
 					<label class="custom-control custom-checkbox row form-group">
-						<input type="checkbox" class="custom-control-input">
+						<input type="checkbox" class="custom-control-input" value="Powerful">
 						<span class="custom-control-indicator"></span>
 						<span class="custom-control-description">Powerful</span>
 					</label>
 
 					<label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
+						<input type="checkbox" class="custom-control-input" value="honed">
 						<span class="custom-control-indicator"></span>
 						<span class="custom-control-description">honed</span>
 					</label>
 					<label class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input">
+						<input type="checkbox" class="custom-control-input" value="dedicated">
 						<span class="custom-control-indicator"></span>
 						<span class="custom-control-description">dedicated</span>
 					</label>
@@ -121,15 +121,16 @@
         var mission  = $('#exampleFormControlTextarea1').val();
         $('<p>').text( mission + " "+ name + " shouted!").appendTo(container);
 
-        var radio  = $('input [type=radio][radioStacked3=Sentimental]:checked').val();
-        $('<p>').text('').appendTo(container);
+        var radio  = $('input[name=radioButton]:checked').val();
+        console.log(radio);
+        // $('<p>').text(radio).appendTo(container);
 
 
-        var noun  = $('input[type=checkbox][exampleFormControlTextarea2=Sentiment]:checked').val();
+        var noun  = $('input[type=checkbox]:checked').val();
         $('<p>').text("Though "+radio + " " + name +" was able to overcome all obstacles with the power of their "+ noun).appendTo(container);
 
-        var noun2  = $('.custom-control').val();
-        $('<p>').text("In the end, their success can be contributed entirely to their "+ noun2).appendTo(container);
+        var noun2  = $('#exampleFormControlTextarea3').val();
+        $('<p>').text("In the end, their success can be contributed entirely to their "+ noun +", "+ noun2).appendTo(container);
 
 
 
